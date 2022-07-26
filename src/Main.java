@@ -27,15 +27,17 @@ public class Main {
 //в формате: «Минимальная сумма трат за день составила … рублей. Максимальная сумма трат за день составила … рублей».
         System.out.println("Задание 2");
         arr = generateRandomArray();
-        int maxWaste = 1;
-        int minWaste = 201_000;
+        int maxWaste = arr[0];
+        int minWaste = arr[arr.length-1];
         double averageWaste;
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] > maxWaste) {
                 maxWaste = arr[i];
-            } else if (arr[i] < minWaste) {
+            }
+            if (arr[i] < minWaste) {
                 minWaste = arr[i];
-            } else if (i == arr.length-1) {
+            }
+            if (i == arr.length-1) {
                 System.out.println(arr[i]);
                 break;
             }
@@ -49,7 +51,7 @@ public class Main {
 // и вывести в консоль результат в формате: «Средняя сумма трат за месяц составила … рублей».
 //Важно помнить:** подсчет среднего значения может иметь остаток (то есть быть не целым, а дробным числом).
         System.out.println("Задание 3");
-        averageWaste = (int) Math.ceil((monthlyPaymentAmount)/30.0);
+        averageWaste = (monthlyPaymentAmount)/30.0;
         System.out.println("Средняя сумма трат за месяц составила " + averageWaste + " рублей.");
 //Задание 4
 //В нашей бухгалтерской книге появился баг. Что-то пошло нет так, и Ф. И. О. сотрудников начали отображаться в обратную сторону. Т. е. вместо «Иванов Иван Иванович» мы имеем «чивонавИ навИ вонавИ».
@@ -60,11 +62,8 @@ public class Main {
 //**Важно**: не используйте дополнительные массивы для решения этой задачи. Необходимо корректно пройти по массиву циклом и распечатать его элементы в правильном порядке.
         System.out.println("Задание 4");
         char[] reverseFullName = { 'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
-            for (int i = reverseFullName.length-1; i <= reverseFullName.length; i--) {
-            if (i >= 0) {
+            for (int i = reverseFullName.length-1; i >= 0; i--) {
                 System.out.print(reverseFullName[i]);
-            } else
-                break;
         }
 
     }
